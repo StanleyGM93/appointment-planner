@@ -8,8 +8,9 @@ export const ContactsPage = ({contactsArray, addContact}) => {
   contact info and duplicate check
   */
 const [name, setName] = useState('');
-const [phoneNumber, setPhoneNumber] = useState(null);
+const [phoneNumber, setPhoneNumber] = useState('');
 const [email, setEmail] = useState('');
+const [duplicateName, setDuplicateName] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +24,16 @@ const [email, setEmail] = useState('');
   Using hooks, check for contact name in the 
   contacts array variable in props
   */
+
+  useEffect(() => {
+    const findDuplicate = (contactsArray, duplicateName) => {
+      const namePropertyInArray = contactsArray[name]
+      if (found) {
+        alert('Name is already in contacts');
+      }
+      return ;
+    }
+  })
 
   return (
     <div>
