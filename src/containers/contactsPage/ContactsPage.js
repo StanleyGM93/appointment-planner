@@ -18,6 +18,7 @@ const [duplicateName, setDuplicateName] = useState(false);
     Add contact info and clear data
     if the contact name is not a duplicate
     */
+   
   };
 
   /*
@@ -27,9 +28,9 @@ const [duplicateName, setDuplicateName] = useState(false);
 
   useEffect(() => {
     const findDuplicate = (contactsArray, duplicateName) => {
-      const namePropertyInArray = contactsArray[name]
-      if (found) {
-        alert('Name is already in contacts');
+      const usingFindOnArray = contactsArray.find((obj) => obj.name === duplicateName)
+      if (usingFindOnArray) {
+        alert('Name is already in contacts'); // How do I indicate if there is a duplicate?
       }
       return ;
     }
@@ -39,10 +40,16 @@ const [duplicateName, setDuplicateName] = useState(false);
     <div>
       <section>
         <h2>Add Contact</h2> 
+        <ContactForm 
+          name={name}
+          phoneNumber={phoneNumber}
+          email={email}
+          />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
+        <TileList contactsArray={contactsArray} />
       </section>
     </div>
   );
