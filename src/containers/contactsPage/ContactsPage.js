@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from "react";
-import {ContactForm} from '../../components/contactForm/ContactForm';
-import {TileList} from '../../components/tileList/TileList';
+import React, { useState, useEffect } from "react";
+import { ContactForm } from '../../components/contactForm/ContactForm';
+import { TileList } from '../../components/tileList/TileList';
 
-export const ContactsPage = ({contactsArray, addContact}) => {
+export const ContactsPage = ({ contactsArray, addContact }) => {
   /*
   Define state variables for 
   contact info and duplicate check
   */
-const [name, setName] = useState('');
-const [phoneNumber, setPhoneNumber] = useState('');
-const [email, setEmail] = useState('');
-const [duplicateName, setDuplicateName] = useState(false);
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [duplicateName, setDuplicateName] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +18,14 @@ const [duplicateName, setDuplicateName] = useState(false);
     Add contact info and clear data
     if the contact name is not a duplicate
     */
-   
-  };
+    setDuplicateName(e.target.value);
+    return [...contactsArray, {
+      name: setName(e.target.value),
+      phoneNumber: setPhoneNumber(e.target.value),
+      email: setEmail(e.target.value)
+    }]
+  }
+
 
   /*
   Using hooks, check for contact name in the 
@@ -31,20 +37,21 @@ const [duplicateName, setDuplicateName] = useState(false);
       const usingFindOnArray = contactsArray.find((obj) => obj.name === duplicateName)
       if (usingFindOnArray) {
         alert('Name is already in contacts'); // How do I indicate if there is a duplicate?
+        setName('');
       }
-      return ;
+      handleSubmit();
     }
-  })
+  }, [name])
 
   return (
     <div>
       <section>
-        <h2>Add Contact</h2> 
-        <ContactForm 
+        <h2>Add Contact</h2>
+        <ContactForm
           name={name}
           phoneNumber={phoneNumber}
           email={email}
-          />
+        />
       </section>
       <hr />
       <section>
