@@ -34,7 +34,7 @@ function App() {
   }
 
   const addAppointment = ({title, contact, date, time}) => {
-    setAppointmentsArray ((prev) => {[
+    setAppointmentsArray ((prev) => ([
       ...prev,
       {
         title,
@@ -42,7 +42,7 @@ function App() {
         date,
         time
       }
-    ]})
+    ]))
   }
 
   return (
