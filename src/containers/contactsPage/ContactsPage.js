@@ -18,12 +18,12 @@ export const ContactsPage = ({ contactsArray, addContact }) => {
     Add contact info and clear data
     if the contact name is not a duplicate
     */
-    setDuplicateName(e.target.value);
-    return [...contactsArray, {
-      name: setName(e.target.value),
-      phoneNumber: setPhoneNumber(e.target.value),
-      email: setEmail(e.target.value)
-    }]
+    if (duplicateName) {
+      setName('')
+    } else {
+      addContact(name, phoneNumber, email)
+    }
+
   }
 
 
@@ -33,13 +33,14 @@ export const ContactsPage = ({ contactsArray, addContact }) => {
   */
 
   useEffect(() => {
-    const findDuplicate = (contactsArray, duplicateName) => {
-      const usingFindOnArray = contactsArray.find((obj) => obj.name === duplicateName)
+    const findDuplicate = (contactsArray, name) => {
+      const usingFindOnArray = contactsArray.find((obj) => obj.name === name)
       if (usingFindOnArray) {
         alert('Name is already in contacts'); // How do I indicate if there is a duplicate?
-        setName('');
+        setDuplicateName(true)
+        return;
       }
-      handleSubmit();
+      return;
     }
   }, [name])
 
@@ -51,6 +52,7 @@ export const ContactsPage = ({ contactsArray, addContact }) => {
           name={name}
           phoneNumber={phoneNumber}
           email={email}
+          handleSubmit={handleSubmit}
         />
       </section>
       <hr />
