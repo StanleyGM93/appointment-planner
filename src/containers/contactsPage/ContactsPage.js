@@ -20,12 +20,12 @@ export const ContactsPage = ({ contactsArray, addContact }) => {
     */
     if (isDuplicate) {
       setName("");
-
-      alert("Name is already in contacts"); // How do I indicate if there is a duplicate?
-
       return;
     } else {
       addContact(name, phoneNumber, email);
+      setName("");
+      setPhoneNumber("");
+      setEmail("");
     }
   };
 
@@ -44,7 +44,7 @@ export const ContactsPage = ({ contactsArray, addContact }) => {
         setIsDupliate(false);
       }
     }
-  }, [isDuplicate, name]);
+  }, [name]);
 
   return (
     <div>
@@ -54,9 +54,11 @@ export const ContactsPage = ({ contactsArray, addContact }) => {
           name={name}
           setName={setName}
           phoneNumber={phoneNumber}
+          setPhoneNumber={setPhoneNumber}
           email={email}
+          setEmail={setEmail}
           handleSubmit={handleSubmit}
-          isDuplicate
+          isDuplicate={isDuplicate}
         />
       </section>
       <hr />
