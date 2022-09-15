@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from "react";
-import {ContactForm} from '../../components/contactForm';
-import {TileList} from '../../components/tileList'
+import React, { useState, useEffect } from "react";
+import { ContactForm } from "../../components/contactForm/ContactForm";
+import { TileList } from "../../components/tileList/TileList";
 
-export const ContactsPage = ({contactsArray, addContact}) => {
+export const ContactsPage = ({ contactsArray, addContact }) => {
   /*
   Define state variables for 
   contact info and duplicate check
   */
-const [name, setName] = useState('');
-const [phoneNumber, setPhoneNumber] = useState('');
-const [email, setEmail] = useState('');
-const [duplicateName, setDuplicateName] = useState(false);
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [isDuplicate, setIsDupliate] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,31 +18,51 @@ const [duplicateName, setDuplicateName] = useState(false);
     Add contact info and clear data
     if the contact name is not a duplicate
     */
+    if (isDuplicate) {
+      setName("");
+      return;
+    } else {
+      addContact(name, phoneNumber, email);
+      setName("");
+      setPhoneNumber("");
+      setEmail("");
+    }
   };
 
   /*
   Using hooks, check for contact name in the 
   contacts array variable in props
   */
-
   useEffect(() => {
-    const findDuplicate = (contactsArray, duplicateName) => {
-      const namePropertyInArray = contactsArray[name]
-      if (found) {
-        alert('Name is already in contacts');
+    if (contactsArray) {
+      const contactFound = contactsArray.find((obj) => obj.name === name);
+      if (contactFound) {
+        setIsDupliate(true);
+      } else {
+        setIsDupliate(false);
       }
-      return ;
     }
-  })
+  }, [name]);
 
   return (
     <div>
       <section>
-        <h2>Add Contact</h2> 
+        <h2>Add Contact</h2>
+        <ContactForm
+          name={name}
+          setName={setName}
+          phoneNumber={phoneNumber}
+          setPhoneNumber={setPhoneNumber}
+          email={email}
+          setEmail={setEmail}
+          handleSubmit={handleSubmit}
+          isDuplicate={isDuplicate}
+        />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
+        <TileList contactsArray={contactsArray} />
       </section>
     </div>
   );
