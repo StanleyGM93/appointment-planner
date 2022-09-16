@@ -10,7 +10,9 @@ function App() {
   contacts and appointments 
   */
   const [contactsArray, setContactsArray] = useState([{ name: "Stan" }]);
-  const [appointmentsArray, setAppointmentsArray] = useState([]);
+  const [appointmentsArray, setAppointmentsArray] = useState([
+    { title: "Swimming", contact: "Stan" },
+  ]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -72,6 +74,7 @@ function App() {
             <AppointmentsPage
               appointmentsArray={appointmentsArray}
               addAppointment={addAppointment}
+              contactsArray={contactsArray}
             />
           </Route>
         </Switch>
