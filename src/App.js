@@ -33,14 +33,14 @@ function App() {
     ]);
   };
 
-  const addAppointment = ({ title, contact, date, time }) => {
+  const addAppointment = (title, contact, date, time) => {
     setAppointmentsArray((prev) => [
       ...prev,
       {
-        title,
-        contact,
-        date,
-        time,
+        title: title,
+        contact: contact,
+        date: date,
+        time: time,
       },
     ]);
   };

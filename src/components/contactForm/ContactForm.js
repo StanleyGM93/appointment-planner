@@ -10,7 +10,6 @@ export const ContactForm = ({
   handleSubmit,
   isDuplicate,
 }) => {
-  console.log(name);
   return (
     <form onSubmit={handleSubmit}>
       <label for="name">Name:</label>
