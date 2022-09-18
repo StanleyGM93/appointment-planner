@@ -1,12 +1,12 @@
 import React from "react";
 
-export const Tile = (obj) => {
-  const keys = Object.keys(obj);
+export const Tile = (contact) => {
+  const keys = Object.keys(contact);
   const mappingKeys = keys.map((key) => {
-    if (key[0]) {
-      return <p className="tile-title">{obj.key}</p>;
+    if (key === "name" || key === "title") {
+      return <p className="tile-title">{contact.key}</p>;
     } else {
-      return <p className="tile">{obj.key}</p>;
+      return <p className="tile">{contact.key}</p>;
     }
   });
 
