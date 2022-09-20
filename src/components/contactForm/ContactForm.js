@@ -12,7 +12,7 @@ export const ContactForm = ({
 }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <label for="name">Name:</label>
+      <label htmlFor="name">Name:</label>
       <br />
       <input
         type="text"
@@ -22,7 +22,7 @@ export const ContactForm = ({
       />
       {isDuplicate && <span>Error - name is already in contacts</span>}
       <br />
-      <label for="phoneNumber">Phone Number:</label>
+      <label htmlFor="phoneNumber">Phone Number:</label>
       <br />
       <input
         type="tel"
@@ -32,7 +32,7 @@ export const ContactForm = ({
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
       ></input>
-      <label for="email">Email:</label>
+      <label htmlFor="email">Email:</label>
       <br />
       <input
         type="email"

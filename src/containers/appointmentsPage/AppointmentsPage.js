@@ -40,6 +40,7 @@ export const AppointmentsPage = ({
           date={date}
           setDate={setDate}
           timeEntered={timeEntered}
+          setTimeEntered={setTimeEntered}
           handleSubmit={handleSubmit}
           contactsArray={contactsArray}
         />
@@ -47,10 +48,7 @@ export const AppointmentsPage = ({
       <hr />
       <section>
         <h2>Appointments</h2>
-        <TileList
-          appointmentsArray={appointmentsArray}
-          contactsArray={contactsArray}
-        />
+        <TileList arrayOfObjects={appointmentsArray} />
       </section>
     </div>
   );

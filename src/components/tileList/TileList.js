@@ -1,9 +1,9 @@
 import React from "react";
 import { Tile } from "../tile/Tile";
 
-export const TileList = ({ contactsArray, appointmentsArray }) => {
-  const tileProducer = contactsArray.map((contact, index) => (
-    <Tile key={index} value={contact} />
+export const TileList = ({ arrayOfObjects }) => {
+  const tileProducer = arrayOfObjects.map((objectInstance, index) => (
+    <Tile key={index} objectInstance={objectInstance} />
   ));
   return <div>{tileProducer}</div>;
 };
