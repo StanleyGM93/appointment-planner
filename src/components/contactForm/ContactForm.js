@@ -32,7 +32,7 @@ export const ContactForm = ({
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
       ></input>
-      <label for="email">Phone Number:</label>
+      <label for="email">Email:</label>
       <br />
       <input
         type="email"
