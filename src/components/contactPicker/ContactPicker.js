@@ -9,7 +9,7 @@ export const ContactPicker = ({ contactsArray, settingContact }) => {
 
   return (
     <select onChange={settingContact}>
-      <option value="" selected="selected"></option>
+      <option value="" defaultValue={""}></option>
       {contactNameGenerator}
     </select>
   );

@@ -27,6 +27,7 @@ export const ContactForm = ({
       <input
         type="tel"
         name="phoneNumber"
+        //Pattern gives an error
         pattern="	
         ^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$"
         value={phoneNumber}

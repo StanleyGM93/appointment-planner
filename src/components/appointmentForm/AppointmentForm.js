@@ -24,7 +24,7 @@ export const AppointmentForm = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <label for="title">Title</label>
+      <label htmlFor="title">Title</label>
       <br />
       <input
         type="text"
@@ -33,22 +33,23 @@ export const AppointmentForm = ({
         onChange={(e) => setTitle(e.target.value)}
       />
       <br />
-      <label for="contactPicker">Pick Contact:</label>
+      <label htmlFor="contactPicker">Pick Contact:</label>
       <ContactPicker
         contactsArray={contactsArray}
         contact={contact}
-        onChange={settingContact}
+        settingContact={settingContact}
       />
-      <label for="date">Date:</label>
+      <label htmlFor="date">Date:</label>
       <br />
       <input
         type="date"
         name="date"
+        //The min value gives an error, must be number or string. It's currently a date (not a data type)
         min={getTodayString}
         value={date}
         onChange={(e) => setDate(e.target.value)}
       ></input>
-      <label for="date">Time:</label>
+      <label htmlFor="date">Time:</label>
       <br />
       <input
         type="time"
