@@ -44,7 +44,6 @@ export const AppointmentForm = ({
       <input
         type="date"
         name="date"
-        //The min value gives an error, must be number or string. It's currently a date (not a data type)
         min={`${getTodayString()}`}
         value={date}
         onChange={(e) => setDate(e.target.value)}

@@ -7,13 +7,13 @@ export const Tile = (objectInstance) => {
     if (objectName === "name" || objectName === "title") {
       return (
         <p className="tile-title" key={index}>
-          - {objectValues[index]}
+          {objectValues[index]}
         </p>
       );
     } else {
       return (
         <p className="tile" key={index}>
-          - {objectValues[index]}
+          {objectValues[index]}
         </p>
       );
     }
