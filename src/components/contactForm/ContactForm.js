@@ -10,6 +10,10 @@ export const ContactForm = ({
   handleSubmit,
   isDuplicate,
 }) => {
+  const spanStyle = {
+    color: "orange",
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name:</label>
@@ -20,16 +24,15 @@ export const ContactForm = ({
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      {isDuplicate && <span>Error - name is already in contacts</span>}
+      {isDuplicate && (
+        <span style={spanStyle}>*Warning - name is already in contacts</span>
+      )}
       <br />
       <label htmlFor="phoneNumber">Phone Number:</label>
       <br />
       <input
         type="tel"
         name="phoneNumber"
-        //Pattern gives an error
-        pattern="	
-        ^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$"
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
       ></input>

@@ -17,7 +17,7 @@ export const AppointmentForm = ({
     const [month, day, year] = new Date()
       .toLocaleDateString("en-NZ")
       .split("/");
-    return `${month.padStart(2, "0")}-${day.padStart(2, "0")}-${year}`;
+    return `${year}-${day.padStart(2, "0")}-${month.padStart(2, "0")}`;
   };
 
   const settingContact = (e) => setContact(e.target.value);
@@ -45,7 +45,7 @@ export const AppointmentForm = ({
         type="date"
         name="date"
         //The min value gives an error, must be number or string. It's currently a date (not a data type)
-        min={getTodayString}
+        min={`${getTodayString()}`}
         value={date}
         onChange={(e) => setDate(e.target.value)}
       ></input>
