@@ -23,7 +23,9 @@ export const ContactsPage = ({ contactsArray, addContact }) => {
   };
 
   useEffect(() => {
-    const contactFound = contactsArray.find((obj) => obj.name === name);
+    const contactFound = contactsArray.find(
+      (obj) => obj.name.toLowerCase() === name.toLowerCase()
+    );
     if (contactFound) {
       setIsDupliate(true);
     } else {
