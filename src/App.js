@@ -44,6 +44,21 @@ function App() {
     ]);
   };
 
+  const removeContact = (name) => {
+    setContactsArray((prev) =>
+      prev.filter((contact) => {
+        return contact.name !== name;
+      })
+    );
+  };
+
+  const removeAppointment = (title) => {
+    setAppointmentsArray((prev) =>
+      prev.filter((appointment) => {
+        return appointment.title !== title;
+      })
+    );
+  };
   return (
     <>
       <nav>
