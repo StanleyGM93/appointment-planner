@@ -81,3 +81,21 @@ select {
   margin-bottom: 20px;
   border-bottom: #000000 1px solid;
 }
+
+.tile-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove-button {
+  background: #eb2c2c;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  font-family: "Open Sans", sans-serif;
+  align-self: baseline;
+}
