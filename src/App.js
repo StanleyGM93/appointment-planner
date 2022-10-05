@@ -78,6 +78,7 @@ function App() {
             <ContactsPage
               contactsArray={contactsArray}
               addContact={addContact}
+              removeContact={removeContact}
             />
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
@@ -85,6 +86,7 @@ function App() {
               appointmentsArray={appointmentsArray}
               addAppointment={addAppointment}
               contactsArray={contactsArray}
+              removeAppointment={removeAppointment}
             />
           </Route>
         </Switch>

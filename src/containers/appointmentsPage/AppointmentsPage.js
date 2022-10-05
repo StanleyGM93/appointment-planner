@@ -6,11 +6,8 @@ export const AppointmentsPage = ({
   appointmentsArray,
   addAppointment,
   contactsArray,
+  removeAppointment,
 }) => {
-  /*
-  Define state variables for 
-  appointment info
-  */
   const [title, setTitle] = useState("");
   const [contact, setContact] = useState("");
   const [date, setDate] = useState("");
@@ -18,9 +15,7 @@ export const AppointmentsPage = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    /*
-    Add contact info and clear data  
-    */
+
     addAppointment(title, contact, date, timeEntered);
     setTitle("");
     setContact("");
@@ -48,7 +43,10 @@ export const AppointmentsPage = ({
       <hr />
       <section>
         <h2>Appointments</h2>
-        <TileList arrayOfObjects={appointmentsArray} />
+        <TileList
+          arrayOfObjects={appointmentsArray}
+          removeAppointment={removeAppointment}
+        />
       </section>
     </div>
   );
